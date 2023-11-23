@@ -1,13 +1,11 @@
-package com.venkatesh.controller;
+package com.venkatesh.kafkaproducer.controller;
 
-import com.venkatesh.service.KafkaMessagePublisher;
+import com.venkatesh.kafkaproducer.dto.Employee;
+import com.venkatesh.kafkaproducer.service.KafkaMessagePublisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/producer")
@@ -33,6 +31,15 @@ public class EventController {
             }
             return ResponseEntity.ok("Message published successfully...");
         }catch (Exception ex){
+            return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).build();
+        }
+    }
+    @PostMapping("/publishEmployee")
+    public ResponseEntity<?> publishEmployeeObject(@RequestBody Employee employee) {
+        try {
+            kafkaMessagePublisher.sendEmployeeToTopic(employee);
+            return ResponseEntity.ok("Employee object published successfully...");
+        } catch (Exception exception) {
             return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).build();
         }
     }
