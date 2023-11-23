@@ -1,7 +1,6 @@
-package com.venkatesh.kafkaproducer.controller;
+package com.venkatesh.controller;
 
-import com.venkatesh.kafkaproducer.KafkaProducerApplication;
-import com.venkatesh.kafkaproducer.service.KafkaMessagePublisher;
+import com.venkatesh.service.KafkaMessagePublisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

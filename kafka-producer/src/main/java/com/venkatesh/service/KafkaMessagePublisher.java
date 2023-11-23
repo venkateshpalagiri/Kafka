@@ -1,4 +1,4 @@
-package com.venkatesh.kafkaproducer.service;
+package com.venkatesh.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -13,7 +13,7 @@ public class KafkaMessagePublisher {
     private KafkaTemplate<String,Object> kafkaTemplate;
 
     public void sendMessageToTopic(String message){
-        CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("kafka-demo3", message);
+        CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("kafka-demo2", message);
         future.whenComplete((result,ex)->
         {
             if(ex==null){

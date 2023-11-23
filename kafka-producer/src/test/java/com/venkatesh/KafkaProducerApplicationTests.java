@@ -1,4 +1,4 @@
-package com.venkatesh.kafkaproducer;
+package com.venkatesh;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.venkatesh.kafkaproducer;
+package com.venkatesh;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
